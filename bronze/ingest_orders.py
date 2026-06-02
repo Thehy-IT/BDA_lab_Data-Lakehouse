@@ -83,7 +83,7 @@ def ingest_orders(source_path: str = SOURCE_PATH, bronze_path: str = BRONZE_PATH
     )
 
     print(f"[Bronze] ✅ Đã ghi vào: {bronze_path}")
-    print(f"[Bronze]    Delta table có thể xem lịch sử bằng: DESCRIBE HISTORY delta.`{bronze_path}`")
+    print(f"[Bronze]    Delta table có thể xem lịch sử bằng: DESCRIBE HISTORY '{bronze_path}'")
     return row_count
 
 
