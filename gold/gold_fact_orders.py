@@ -51,7 +51,7 @@ def run(
     df_products = (
         spark.read
         .option("header", "true")
-        .option("encoding", "utf-8-sig")
+        .option("encoding", "utf-8")
         .csv(products_csv_path)
         .select("product_id", "name", "category")
         .withColumnRenamed("name", "product_name")

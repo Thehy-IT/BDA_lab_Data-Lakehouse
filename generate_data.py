@@ -114,9 +114,9 @@ if __name__ == "__main__":
     products  = generate_products(50)
     orders    = generate_orders(customers, products, n=500, dup_rate=0.10)
 
-    customers.to_csv(f"{RAW_DIR}/customers.csv", index=False, encoding="utf-8-sig")
-    products.to_csv(f"{RAW_DIR}/products.csv",   index=False, encoding="utf-8-sig")
-    orders.to_csv(f"{RAW_DIR}/orders.csv",        index=False, encoding="utf-8-sig")
+    customers.to_csv(f"{RAW_DIR}/customers.csv", index=False, encoding="utf-8")
+    products.to_csv(f"{RAW_DIR}/products.csv",   index=False, encoding="utf-8")
+    orders.to_csv(f"{RAW_DIR}/orders.csv",        index=False, encoding="utf-8")
 
     print(f"✅ customers : {len(customers):,} rows  →  {RAW_DIR}/customers.csv")
     print(f"✅ products  : {len(products):,} rows  →  {RAW_DIR}/products.csv")

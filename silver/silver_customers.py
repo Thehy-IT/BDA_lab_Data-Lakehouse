@@ -39,7 +39,7 @@ def run(source_path: str = SOURCE_PATH, silver_path: str = SILVER_PATH) -> None:
     df_raw = (
         spark.read
         .option("header", "true")
-        .option("encoding", "utf-8-sig")
+        .option("encoding", "utf-8")
         .csv(source_path)
     )
     print(f"[Silver] Đọc được {df_raw.count():,} customers từ CSV")

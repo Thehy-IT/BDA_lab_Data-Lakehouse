@@ -59,7 +59,7 @@ def ingest_orders(source_path: str = SOURCE_PATH, bronze_path: str = BRONZE_PATH
     df_raw = (
         spark.read
         .option("header", "true")
-        .option("encoding", "utf-8-sig")
+        .option("encoding", "utf-8")
         .schema(ORDERS_SCHEMA)
         .csv(source_path)
     )

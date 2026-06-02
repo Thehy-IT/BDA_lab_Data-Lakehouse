@@ -5,6 +5,7 @@
 # =============================================================================
 
 from pyspark.sql import SparkSession
+from delta import configure_spark_with_delta_pip
 
 
 def get_spark(app_name: str = "EcommerceLakehouse") -> SparkSession:
@@ -26,7 +27,7 @@ def get_spark(app_name: str = "EcommerceLakehouse") -> SparkSession:
     >>> from config.spark_session import get_spark
     >>> spark = get_spark("MyJob")
     """
-    spark = (
+    builder = (
         SparkSession.builder
         .appName(app_name)
         # --- Delta Lake catalog & extensions ---
@@ -42,8 +43,9 @@ def get_spark(app_name: str = "EcommerceLakehouse") -> SparkSession:
         .config("spark.driver.memory", "2g")
         .config("spark.sql.shuffle.partitions", "4")   # giảm overhead khi data nhỏ
         .master("local[*]")
-        .getOrCreate()
     )
+    
+    spark = configure_spark_with_delta_pip(builder).getOrCreate()
 
     # Bật tính năng tự động merge schema khi ghi (hữu ích ở Silver layer)
     spark.conf.set("spark.databricks.delta.schema.autoMerge.enabled", "true")
