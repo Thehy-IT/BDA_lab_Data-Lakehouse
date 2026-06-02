@@ -86,10 +86,8 @@ def main() -> None:
     total_steps = 6
     start_time  = time.time()
 
-    print("\n" + "🚀 " * 20)
     print("  E-COMMERCE DATA LAKEHOUSE PIPELINE")
     print("  Bronze → Silver → Gold")
-    print("🚀 " * 20)
 
     # --- Step 0: Kiểm tra đầu vào ---
     _step(0, total_steps, "Kiểm tra dữ liệu đầu vào")
